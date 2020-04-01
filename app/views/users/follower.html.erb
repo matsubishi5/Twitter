@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="tweets-sidebar-left col-lg-2">
+            <%= render "shared/sidebar-left" %>
+        </div>
+        <div class="col-lg-7">
+            <h3>フォロワー</h3>
+            <table class="table">
+                <tbody>
+                    <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+                        <tr class="user_<%= user.id %>">
+                            <%= render "shared/follow", user: user %>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-3">
+            <%= render "shared/sidebar-right" %>
+        </div>
+    </div>
+</div>

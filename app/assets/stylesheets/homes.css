@@ -1,0 +1,62 @@
+.homes-container-left {
+  height: 630px;
+  background-image: url(twitter-logo.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.homes-container-left-box {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: 630px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.homes-container-left-content {
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.homes-container-right {
+  height: 630px;
+}
+
+.homes-container-right-box {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: 630px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.homes-container-right h1 {
+  padding-bottom: 30px;
+}
+
+.homes-container-right h3 {
+  font-size: 16px;
+}
+/*# sourceMappingURL=homes.css.map */

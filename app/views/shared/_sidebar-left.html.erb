@@ -1,0 +1,36 @@
+<p>
+	<i class="fab fa-twitter"></i>
+</p>
+<p>
+	<i class="fas fa-home"></i>
+	<%= link_to "ホーム",tweets_path %>
+</p>
+<p>
+	<i class="fas fa-hashtag"></i>
+	<%= link_to "話題を検索" %>
+</p>
+<p>
+	<i class="fa fa-bell-o"></i>
+	<%= link_to "通知" %>
+</p>
+<p>
+	<i class="far fa-envelope"></i>
+	<%= link_to "メッセージ",rooms_path %>
+</p>
+<p>
+	<i class="fa fa-bookmark-o"></i>
+	<%= link_to "ブックマーク" %>
+</p>
+<p>
+	<i class="far fa-list-alt"></i>
+	<%= link_to "リスト" %>
+</p>
+<p>
+	<%= attachment_image_tag current_user, :profile_image, :size =>'30x30', class: "img-circle pull-left profile-thumb", fallback: "no_image1.jpg" %>
+	<%= link_to "プロフィール",user_path(current_user) %>
+</p>
+<p>
+	<i class="far fa-comment-dots"></i>
+	<%= link_to "もっと見る" %>
+</p>
+<%= link_to "ツイートする",new_tweet_path,class:"btn btn-info btn-block" %>

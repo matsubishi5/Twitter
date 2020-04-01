@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="tweets-sidebar-left col-lg-2">
+            <%= render "shared/sidebar-left" %>
+        </div>
+        <div class="col-lg-7">
+            <h1>ホーム</h1>
+            <%= form_with(model: Tweet, url: tweets_path, method: :POST, remote: true) do |f| %>
+            <%= f.text_area :body %>
+            <%= f.submit "ツイートする",class:"btn btn-info" %>
+            <% end %>
+            <table class="table">
+                <tbody>
+                    <tr class="new"></tr>
+                    <% @tweets.each do |tweet| %>
+                    <tr class="tweet_<%= tweet.id %>">
+                        <%= render "shared/tweets", tweet: tweet %>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-3">
+            <%= render "shared/sidebar-right" %>
+        </div>
+    </div>
+</div>

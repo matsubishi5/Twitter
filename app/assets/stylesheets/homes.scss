@@ -1,0 +1,47 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.homes-container-left {
+	height: 630px;
+	background-image: url(twitter-logo.png);
+	background-size: cover;
+	background-position: center;
+}
+
+.homes-container-left-box {
+	width: max-content;
+	height: 630px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction:column;
+    justify-content: center;
+}
+
+.homes-container-left-content {
+	color: white;
+	width: 100%;
+	font-size: 20px;
+	padding-bottom: 20px;
+}
+
+.homes-container-right {
+	height: 630px;
+}
+
+.homes-container-right-box {
+	width: max-content;
+	height: 630px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction:column;
+    justify-content: center;
+}
+
+.homes-container-right h1 {
+	padding-bottom: 30px;
+}
+
+.homes-container-right h3 {
+	font-size: 16px;
+}

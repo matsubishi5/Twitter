@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="tweets-sidebar-left col-lg-2">
+            <%= render "shared/sidebar-left" %>
+        </div>
+        <div class="col-lg-7">
+            <%= attachment_image_tag @user, :header_image, :size =>'680x200', class: "img-rounded", fallback: "no_image2.jpg" %>
+            <%= attachment_image_tag @user, :profile_image, :size =>'150x150', class: "img-circle pull-left profile-thumb", fallback: "no_image1.jpg" %>
+            <p>
+                <% if @user == current_user %>
+                    <%= link_to "プロフィールを編集",edit_user_registration_path(@user) %>
+                <% end %>
+            </p>
+            <p><%= @user.name %></p>
+            <p><%= @user.introduction %></p>
+            <p>誕生日 <%= @user.birthday %></p>
+            <%= link_to "#{@user.follower.count} フォロー中",users_following_path(@user) %>
+            <%= link_to "#{@user.followed.count} フォロワー",users_follower_path(@user) %>
+            <% unless @user == current_user %>
+                <% if current_user.following?(@user) %>
+                    <div class="user_<%= @user.id %>">
+                        <%= link_to 'フォロー解除', unfollow_path(@user.id), method: :POST,class:"btn btn-info", remote: true %>
+                    </div>
+                <% else %>
+                    <div class="user_<%= @user.id %>">
+                        <%= link_to 'フォロー', follow_path(@user.id), method: :POST,class:"btn btn-default", remote: true %>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <% if @user.id == current_user.id %>
+            <% else %>
+              <% if @isRoom == true %>
+                <p><a href="/rooms/<%= @roomId %>" class="btn btn-info" >チャットへ</a>
+              <% else %>
+                <%= form_for @room do |f| %>
+                  <%= fields_for @entry do |e| %>
+                    <%= e.hidden_field :user_id, :value=> @user.id %>
+                  <% end %>
+                  <%= f.submit "メッセージ",class:"btn btn-info" %>
+                <% end %>
+              <% end %>
+            <% end %>
+            <%= link_to "ツイート一覧",user_path(@user) %>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>いいね</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @favorites.each  do |tweet| %>
+                        <tr class="tweet_<%= tweet.id %>">
+                            <td><%= render "shared/tweets", tweet: tweet %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-3">
+            <%= render "shared/sidebar-right" %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+$("textarea").val("");
+$(".new").before('<tr id="tweet_<%= @tweet.id %>"></tr>');
+$(".tweet_<%= @tweet.id %>").html("<%= j(render 'shared/tweets', tweet: @tweet ) %>");

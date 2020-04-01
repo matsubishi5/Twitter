@@ -1,0 +1,48 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="homes-container-left col-lg-6">
+			<div class="homes-container-left-box">
+				<p class="homes-container-left-content">
+					<i class="fas fa-search"></i>
+					<span>あなたの「好き」をフォローしましょう。</span>
+				</p>
+				<p class="homes-container-left-content">
+					<i class="far fa-user"></i>
+					<span>話題のトピックを追いかけましょう。</span>
+				</p>
+				<p class="homes-container-left-content">
+					<i class="far fa-comment"></i>
+					<span>会話に参加しましょう。</span>
+				</p>
+			</div>
+		</div>
+		<div class="homes-container-right col-lg-6">
+			<div class="homes-container-right-box">
+				<form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="zGzndE9Kg/C0IjrXcZi+8N0ecJRUvI+64/BW4Aphih0MV8iDmWm60xJ8w+1F0QlXObplziMWTdUdr1WrYsA0Xw==">
+					<div class="field">
+						<input autofocus="autofocus" autocomplete="name" class="form-control" placeholder="名前" type="text" name="user[name]" id="user_name">
+					</div>
+
+					<div class="field">
+						<input autocomplete="current-password" class="form-control" placeholder="パスワード" type="password" name="user[password]" id="user_password">
+					</div>
+
+					<div class="field">
+						<input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+						<label for="user_パスワードを記憶">パスワードを記憶</label>
+					</div>
+
+					<div class="actions field">
+						<input type="submit" name="commit" value="ログイン" class="btn btn-default btn-block" data-disable-with="ログイン">
+					</div>
+				</form>
+				<a href="/users/password/new">パスワードを忘れましたか？</a>
+				<i class="fab fa-twitter"></i>
+				<h1>「いま」起きていることを見つけよう</h1>
+				<h3>Twitterをはじめよう</h3>
+				<p><%= link_to "アカウント作成", new_user_registration_path,class:"btn btn-primary btn-block" %></p>
+				<p><%= link_to "ログイン", new_user_session_path,class:"btn btn-default btn-block" %></p>
+			</div>
+		</div>
+	</div>
+</div>

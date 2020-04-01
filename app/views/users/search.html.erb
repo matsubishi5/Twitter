@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="tweets-sidebar-left col-lg-2">
+            <%= render "shared/sidebar-left" %>
+        </div>
+        <div class="col-lg-7">
+            <h1>検索</h1>
+            <%= form_tag(search_path, :method => 'get') do %>
+                <%= select_tag(:option, options_for_select([["アカウント", "1"],["ツイート","2"]]))%>
+                <%= text_field_tag :search %>
+                <%= submit_tag 'Search' %>
+            <% end %>
+            <% if @user_or_tweet == "1"%>
+                <h1>アカウント</h1>
+                <table class="table">
+                    <% @users.each do |user| %>
+                    <thead>
+                        <tr>
+                            <td>
+                                <%= attachment_image_tag user, :profile_image, :size =>'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image1.jpg" %>
+                                <p><%= link_to user.name,user_path(user) %></p>
+                                <p><%= user.introduction %></p>
+                            </td>
+                        </tr>
+                    </thead>
+                    <% end %>
+                </table>
+            <% elsif @user_or_tweet == "2" %>
+                <h2>ツイート</h2>
+                <table class="table">
+                <% @tweets.each do |tweet| %>
+                    <thead>
+                        <tr>
+                            <td>
+                                <%= attachment_image_tag tweet.user, :profile_image, :size =>'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image1.jpg" %>
+                                <p><%= link_to tweet.user.name,user_path(tweet.user) %></p>
+                                <p><%= link_to tweet.body,tweet_path(tweet) %></p>
+                            </td>
+                        </tr>
+                    </thead>
+                <% end %>
+                </table>
+            <% else %>
+            <% end %>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-3">
+        </div>
+    </div>
+</div>
